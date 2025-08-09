@@ -21,24 +21,6 @@ function Vehicles() {
       range: "700 km",
       img: "https://tesla-cdn.thron.com/delivery/public/image/tesla/18c42c65-560b-4b8a-8aeb-24c0467920f8/bvlatuR/std/2880x1800/MS-Performance-White"
     },
-    {
-      name: "Model Q",
-      speed: "290 km/h",
-      range: "620 km",
-      img: "https://tesla-cdn.thron.com/delivery/public/image/tesla/bf655d1e-9a9d-4c7b-b6cf-13e0fef3eaf4/bvlatuR/std/2880x1800/MS-Performance-Black"
-    },
-    {
-      name: "Cybertruck",
-      speed: "210 km/h",
-      range: "800 km",
-      img: "https://tesla-cdn.thron.com/delivery/public/image/tesla/2e3762a4-17e7-43e4-bcd7-4bb1a3d4dafa/bvlatuR/std/2880x1800/Cybertruck-Hero-Desktop"
-    },
-    {
-      name: "Roadster",
-      speed: "400 km/h",
-      range: "1000 km",
-      img: "https://tesla-cdn.thron.com/delivery/public/image/tesla/33c1a949-45ff-42d7-91cb-6f5ecb7da75a/bvlatuR/std/2880x1800/roadster-social"
-    }
   ];
 
   return (
@@ -66,16 +48,14 @@ export default Vehicles;
 // Styled Components
 const Wrapper = styled.div`
   padding: 40px;
+  background: #f5f5f5;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #e3e9f0, #f8f9fa);
 `;
 
 const Title = styled.h1`
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 40px;
-  font-weight: 700;
-  color: #111;
 `;
 
 const Grid = styled.div`

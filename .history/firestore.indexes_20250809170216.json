@@ -1,0 +1,27 @@
+// firebase.js
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDlAbN4B4OcM60ow9FrygRQdioehdNqLQk",
+  authDomain: "yoyo-5d493.firebaseapp.com",
+  projectId: "yoyo-5d493",
+  storageBucket: "yoyo-5d493.appspot.com", // still here for config, but we won't use it
+  messagingSenderId: "605949932354",
+  appId: "1:605949932354:web:ce0914589185789d6acedb",
+  measurementId: "G-QWE2RBQL35"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+// Initialize services we need
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+// Export them so you can use in other files
+export { db, auth };

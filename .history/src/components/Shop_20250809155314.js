@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { db } from './firebaseConfig'; // Firebase config file
+import { collection, addDoc } from 'firebase/firestore';
 
 function Shop() {
   const products = [
@@ -8,6 +10,22 @@ function Shop() {
     { name: 'Model U', desc: 'Unstoppable power. Your neighbors will notice.', price: '₹55,00,000' },
     { name: 'Model Q', desc: 'Quirky yet elegant. Be different.', price: '₹30,00,000' }
   ];
+
+  // Handle Buy Now click
+  const handleBuy = async (car) => {
+    try {
+      await addDoc(collection(db, "orders"), {
+        name: car.name,
+        description: car.desc,
+        price: car.price,
+        date: new Date().toISOString()
+      });
+      alert(`✅ Order placed for ${car.name}!`);
+    } catch (error) {
+      console.error("❌ Error saving order: ", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
 
   return (
     <Wrapper>
@@ -19,7 +37,7 @@ function Shop() {
             <h2>{car.name}</h2>
             <p>{car.desc}</p>
             <Price>{car.price}</Price>
-            <BuyButton>Buy Now</BuyButton>
+            <BuyButton onClick={() => handleBuy(car)}>Buy Now</BuyButton>
           </ProductCard>
         ))}
       </ProductGrid>
